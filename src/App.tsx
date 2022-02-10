@@ -18,9 +18,9 @@ export type ArrayOfCharactersProps = {
   arrayCharacters: HomeCardProps[];
 }
 
+export const baseApi = 'https://api.disneyapi.dev/characters/'
 export const App = () => {
 
-  const baseApi = 'https://api.disneyapi.dev/characters/'
 
   const [characters, setCharacters] = useState<ArrayOfCharactersProps[]>([])
 
