@@ -14,8 +14,7 @@ export const ListOfCharacters = ({ arrayCharacters }: ArrayOfCharactersProps) =>
             alignItems="flex-start"
             columnSpacing="1rem"
             rowSpacing="1rem"
-            px={4}
-            
+            px={4}            
         >
             {arrayCharacters.map(({ _id, name, imageUrl }) => (
                 <CardCharacters
