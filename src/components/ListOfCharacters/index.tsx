@@ -12,16 +12,18 @@ export const ListOfCharacters = ({ arrayCharacters }: ArrayOfCharactersProps) =>
             direction="row"
             justifyContent="center"
             alignItems="flex-start"
-            columnSpacing={25}
-            px={'10rem'}
+            columnSpacing="1rem"
+            rowSpacing="1rem"
+            px={4}
+            
         >
-            {arrayCharacters.map(({_id, name, imageUrl}) => (
+            {arrayCharacters.map(({ _id, name, imageUrl }) => (
                 <CardCharacters
                     _id={_id}
                     name={name}
                     imageUrl={imageUrl}
-                />))}
-            <CardCharacters _id={1} name="Olu Mel" imageUrl="https://static.wikia.nocookie.net/disney/images/6/61/Olu_main.png" />
+                />
+            ))}
         </Grid>
     )
 } 
