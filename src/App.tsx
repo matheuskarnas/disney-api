@@ -19,6 +19,7 @@ export type ArrayOfCharactersProps = {
 }
 
 export const App = () => {
+  let homeData: ArrayOfCharactersProps[]
 
   const baseApi = 'https://api.disneyapi.dev/characters/'
 
@@ -33,14 +34,20 @@ export const App = () => {
       });
   }, [])
 
-  console.log(characters)
+  useEffect(() => {
+    if (characters.length > 0) {      
+      homeData = characters
+      console.log('homeData', homeData.length)
+    }
+  }, [characters])
+  console.log('characters', characters)
   return (
     <Box
       bgcolor='background.paper'
       color='primary.main'
     >
       {/* <Header /> */}
-      <ListOfCharacters />
+      <ListOfCharacters arrayCharacters={characters} />
     </Box>
   )
 }
