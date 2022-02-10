@@ -9,8 +9,6 @@ export function CardCharacters({ name, _id, imageUrl }: HomeCardProps) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  console.log(open)
-
   return (
     <>
       <BasicModal _id={_id} handleClose={handleClose} isOpen={open} />

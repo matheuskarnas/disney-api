@@ -1,6 +1,8 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { baseApi } from '../../App'
+import { useEffect } from 'react';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -22,7 +24,15 @@ type ModalProps = {
 
 export default function BasicModal({ _id, handleClose, isOpen }: ModalProps) {
 
-  console.log(handleClose)
+  if (isOpen) {
+    useEffect(() => {
+      fetch(baseApi + _id)
+        .then(response => response.json())
+        .then(data => console.log('de dentro do modal', data))
+
+    }, [isOpen])
+  }
+
   return (
     <div>
       <Modal
