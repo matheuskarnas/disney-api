@@ -9,13 +9,13 @@ type Limit = {
 }
 
 export type HomeCardProps = {
-  id?: number,
-  name: string,
-  img: string
+  _id: number;
+  name: string;
+  imageUrl: string
 }
 
 export type ArrayOfCharactersProps = {
-  allCharacters: HomeCardProps[]
+  arrayCharacters: HomeCardProps[];
 }
 
 export const App = () => {
@@ -27,7 +27,10 @@ export const App = () => {
   useEffect(() => {
     fetch(baseApi)
       .then(response => response.json())
-      .then(data => setCharacters(data.data));
+      .then(data => {
+        const mappedData = data.data.map(({ _id, name, imageUrl }: HomeCardProps) => ({ _id, name, imageUrl }))
+        setCharacters(mappedData)
+      });
   }, [])
 
   console.log(characters)
@@ -36,7 +39,7 @@ export const App = () => {
       bgcolor='background.paper'
       color='primary.main'
     >
-      <Header />
+      {/* <Header /> */}
       <ListOfCharacters />
     </Box>
   )
