@@ -18,14 +18,13 @@ export type ArrayOfCharactersProps = {
   arrayCharacters: HomeCardProps[];
 }
 
-export const baseApi = 'https://api.disneyapi.dev/characters/'
+export const baseUrl = 'https://api.disneyapi.dev/characters/'
+
 export const App = () => {
-
-
   const [characters, setCharacters] = useState<ArrayOfCharactersProps[]>([])
 
   useEffect(() => {
-    fetch(baseApi)
+    fetch(baseUrl)
       .then(response => response.json())
       .then(data => {
         const mappedData = data.data.map(({ _id, name, imageUrl }: HomeCardProps) => ({ _id, name, imageUrl }))
