@@ -21,11 +21,11 @@ export function CardCharacters({ name, _id, imageUrl }: HomeCardProps) {
           width='23rem'
           height='20rem'
           textAlign='center'
-          sx={{ border: 1 }}
+          sx={{ borderRadius: '12px' }}
         >
           <img
             src={imageUrl}
-            style={{ width: '100%', maxHeight: '15rem' }}
+            style={{ width: '100%', maxHeight: '15rem',  borderRadius: '12px' }}
           />
           <h1>{name}</h1>
         </Box>
