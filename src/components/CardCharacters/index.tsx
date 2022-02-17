@@ -1,17 +1,17 @@
 import { Box, Grid } from '@mui/material';
 import { useState } from 'react';
-import { HomeCardProps } from '../../App';
+import { AllDataOfCharters } from '../../App';
 import BasicModal from '../Modal';
 
 
-export function CardCharacters({ name, _id, imageUrl }: HomeCardProps) {
+export function CardCharacters(character : AllDataOfCharters) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <>
-      <BasicModal _id={_id} handleClose={handleClose} isOpen={open} />
+      <BasicModal _id={character._id} handleClose={handleClose} isOpen={open} />
       <Grid
         onClick={() => handleOpen()}
         item
@@ -24,10 +24,10 @@ export function CardCharacters({ name, _id, imageUrl }: HomeCardProps) {
           sx={{ borderRadius: '12px' }}
         >
           <img
-            src={imageUrl}
+            src={character.imageUrl}
             style={{ width: '100%', maxHeight: '15rem',  borderRadius: '12px' }}
           />
-          <h1>{name}</h1>
+          <h1>{character.name}</h1>
         </Box>
       </Grid>
     </>

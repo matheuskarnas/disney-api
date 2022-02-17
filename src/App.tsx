@@ -4,42 +4,52 @@ import { Box } from '@mui/material';
 import { useEffect } from 'react';
 import { useState } from "react"
 
-type Limit = {
-  limit: number
-}
-
-export type HomeCardProps = {
-  _id: number;
+export type AllDataOfCharters = {
+  _id: number
   name: string;
-  imageUrl: string
+  imageUrl: string;
+  url: string;
+  films?: string[];
+  shortFilms?: string[];
+  tvShows?: string[];
+  videoGames?: string[];
+  parkAttractions?: string[];
+  allies?: string[];
+  lenemiesimit?: string[];
 }
 
 export type ArrayOfCharactersProps = {
-  arrayCharacters: HomeCardProps[];
+  arrayCharacters: AllDataOfCharters[];
 }
 
-export const baseUrl = 'https://api.disneyapi.dev/characters/'
+export const baseUrl = 'https://api.disneyapi.dev/characters?page=1'
 
 export const App = () => {
   const [characters, setCharacters] = useState<ArrayOfCharactersProps[]>([])
+  const [validation, setValidation] = useState<string | undefined>(baseUrl)
 
-  useEffect(() => {
-    fetch(baseUrl)
-      .then(response => response.json())
-      .then(data => {
-        const mappedData = data.data.map(({ _id, name, imageUrl }: HomeCardProps) => ({ _id, name, imageUrl }))
-        setCharacters(mappedData)
-      });
-  }, [])
+  useEffect((url = validation) => {
+    if (url !== undefined) {
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const collectionCharacters = data.data.map((character: AllDataOfCharters) =>  setCharacters({character}) )
+          setValidation(data.nextPage)
+          collectionCharacters
+          // setCharacters([...characters, collectionCharacters])          
+        })
+    }
+    console.log('fetch', characters)
+  }, [validation])
 
-
-  console.log('characters', characters)
   return (
     <Box
       bgcolor='secundary.main'
       color='primary.main'
     >
       {/* <Header /> */}
+      <h1>Tesxte</h1>
+      <h1>{characters.length}</h1>
       <ListOfCharacters arrayCharacters={characters} />
     </Box>
   )

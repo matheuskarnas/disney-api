@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useEffect, useState } from 'react';
-import { HomeCardProps, baseUrl } from '../../App'
+import { HomeCardProps, baseUrl, AllDataOfCharters } from '../../App'
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -27,21 +27,17 @@ type ModalDataProps = {
 }
 
 export default function BasicModal({ _id, handleClose, isOpen }: ModalProps) {
-  const [modalData, setModalData] = useState<HomeCardProps[]>([])
+  const [modalData, setModalData] = useState<AllDataOfCharters[]>([])
 
   const collection = async (_id: number) => {
     fetch(baseUrl + _id)
       .then(response => response.json())
-      .then(data => {
-        setModalData(data)
-        console.log('de dentro do modal', modalData)
-        return
-      })
+      .then(data => setModalData(data))
   }
 
   if (isOpen) {
     collection(_id)
-    console.log('aqui', modalData)
+    // console.log('aqui', modalData)
   }
 
   return (
@@ -53,16 +49,16 @@ export default function BasicModal({ _id, handleClose, isOpen }: ModalProps) {
         aria-labelledby="Data-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} color="primary.main">   
+        <Box sx={style} color="primary.main">
           <img src={modalData.imageUrl} />
-          <h1>{ `name: ${modalData.name}` || '' }</h1>
-          <h1>{ ` allies: ${modalData.allies}` || '' }</h1>
-          <h1>{ ` enemies: ${modalData.enemies}` || '' }</h1>
-          <h1>{ ` films: ${modalData.films}` || '' }</h1>
-          <h1>{ ` parkAttractions: ${modalData.parkAttractions}` || '' }</h1>
-          <h1>{ ` shortFilms: ${modalData.shortFilms}` || '' }</h1>
-          <h1>{ ` tvShows: ${modalData.tvShows}` || '' }</h1>
-          <h1>{ ` videoGames: ${modalData.videoGames}` || '' }</h1>
+          <h3>{`name: ${modalData.name}` || ''}</h3>
+          <h3>{`allies: ${modalData.allies}` || ''}</h3>
+          <h3>{`enemies: ${modalData.enemies}` || ''}</h3>
+          <h3>{`films: ${modalData.films}` || ''}</h3>
+          <h3>{`parkAttractions: ${modalData.parkAttractions}` || ''}</h3>
+          <h3>{`shortFilms: ${modalData.shortFilms}` || ''}</h3>
+          <h3>{`tvShows: ${modalData.tvShows}` || ''}</h3>
+          <h3>{`videoGames: ${modalData.videoGames}` || ''}</h3>
         </Box>
       </Modal>
     </div>

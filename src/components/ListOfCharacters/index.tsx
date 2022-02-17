@@ -16,11 +16,9 @@ export const ListOfCharacters = ({ arrayCharacters }: ArrayOfCharactersProps) =>
             rowSpacing="1rem"
             px={4}            
         >
-            {arrayCharacters.map(({ _id, name, imageUrl }) => (
+            {arrayCharacters.map((character : AllDataOfCharters) => (
                 <CardCharacters
-                    _id={_id}
-                    name={name}
-                    imageUrl={imageUrl}
+                    character={character}
                 />
             ))}
         </Grid>
