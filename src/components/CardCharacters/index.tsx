@@ -1,17 +1,20 @@
 import { Box, Grid } from '@mui/material';
 import { useState } from 'react';
 import { AllDataOfCharters } from '../../App';
-import BasicModal from '../Modal';
+import { CharacterModal } from '../Modal';
 
+type CardCharactersProps = {
+  character: AllDataOfCharters
+}
 
-export function CardCharacters(character : AllDataOfCharters) {
+export const CardCharacters = ({ character }: CardCharactersProps) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <>
-      <BasicModal _id={character._id} handleClose={handleClose} isOpen={open} />
+      <CharacterModal character={character} handleClose={handleClose} isOpen={open} />
       <Grid
         onClick={() => handleOpen()}
         item
@@ -25,7 +28,7 @@ export function CardCharacters(character : AllDataOfCharters) {
         >
           <img
             src={character.imageUrl}
-            style={{ width: '100%', maxHeight: '15rem',  borderRadius: '12px' }}
+            style={{ width: '100%', maxHeight: '15rem', borderRadius: '12px' }}
           />
           <h1>{character.name}</h1>
         </Box>

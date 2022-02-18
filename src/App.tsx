@@ -15,7 +15,7 @@ export type AllDataOfCharters = {
   videoGames?: string[];
   parkAttractions?: string[];
   allies?: string[];
-  lenemiesimit?: string[];
+  enemies?: string[];
 }
 
 export type ArrayOfCharactersProps = {
@@ -25,7 +25,7 @@ export type ArrayOfCharactersProps = {
 export const baseUrl = 'https://api.disneyapi.dev/characters?page=1'
 
 export const App = () => {
-  const [characters, setCharacters] = useState<ArrayOfCharactersProps[]>([])
+  const [characters, setCharacters] = useState<AllDataOfCharters[]>([])
   const [validation, setValidation] = useState<string | undefined>(baseUrl)
 
   useEffect((url = validation) => {
@@ -33,10 +33,10 @@ export const App = () => {
       fetch(url)
         .then(response => response.json())
         .then(data => {
-          const collectionCharacters = data.data.map((character: ArrayOfCharactersProps) =>  setCharacters([...characters, character]))
-          setValidation(data.nextPage)
-          collectionCharacters
-                  
+          const teste = characters.concat(data.data)
+          setValidation(data.nextPage)          
+          setCharacters(teste)
+          // console.log('data', teste )
         })
     }
     console.log('fetch', characters)
@@ -50,7 +50,7 @@ export const App = () => {
       {/* <Header /> */}
       <h1>Tesxte</h1>
       <h1>{characters.length}</h1>
-      {/* <ListOfCharacters arrayCharacters={characters} /> */}
+      <ListOfCharacters arrayCharacters={characters} />
     </Box>
   )
 }
