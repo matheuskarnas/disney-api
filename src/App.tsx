@@ -50,7 +50,7 @@ export const App = () => {
       {/* <Header /> */}
       <h1>Tesxte</h1>
       <h1>{characters.length}</h1>
-      <ListOfCharacters arrayCharacters={characters} />
+      <ListOfCharacters characters={characters} />
     </Box>
   )
 }

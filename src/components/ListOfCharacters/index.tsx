@@ -3,10 +3,10 @@ import { AllDataOfCharters } from "../../App"
 import { CardCharacters } from "../CardCharacters"
 
 type ListOfCharactersprops = {
-    arrayCharacters: AllDataOfCharters[]
+    characters: AllDataOfCharters[]
 }
 
-export const ListOfCharacters = ({ arrayCharacters }: ListOfCharactersprops) => (
+export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => (
     <Grid
         container
         direction="row"
@@ -16,7 +16,7 @@ export const ListOfCharacters = ({ arrayCharacters }: ListOfCharactersprops) => 
         rowSpacing="1rem"
         px={4}
     >
-        {arrayCharacters.map((character: AllDataOfCharters) => (
+        {characters.map((character: AllDataOfCharters) => (
             <CardCharacters
                 character={character}
             />
