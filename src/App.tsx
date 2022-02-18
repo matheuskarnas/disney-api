@@ -33,10 +33,10 @@ export const App = () => {
       fetch(url)
         .then(response => response.json())
         .then(data => {
-          const collectionCharacters = data.data.map((character: AllDataOfCharters) =>  setCharacters({character}) )
+          const collectionCharacters = data.data.map((character: ArrayOfCharactersProps) =>  setCharacters([...characters, character]))
           setValidation(data.nextPage)
           collectionCharacters
-          // setCharacters([...characters, collectionCharacters])          
+                  
         })
     }
     console.log('fetch', characters)
@@ -50,7 +50,7 @@ export const App = () => {
       {/* <Header /> */}
       <h1>Tesxte</h1>
       <h1>{characters.length}</h1>
-      <ListOfCharacters arrayCharacters={characters} />
+      {/* <ListOfCharacters arrayCharacters={characters} /> */}
     </Box>
   )
 }
