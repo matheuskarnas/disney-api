@@ -2,36 +2,31 @@ import { Grid, Pagination, Stack } from "@mui/material"
 import { useEffect, useState } from "react"
 import { AllDataOfCharters } from "../../App"
 import { CardCharacters } from "../CardCharacters"
-import { List } from "./List"
+import { dataProvisoria } from '../../assets/preData'
 
 type ListOfCharactersprops = {
     characters: AllDataOfCharters[]
 }
 
 export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(0);
     const [amountPerPage, setAmountPerPage] = useState(50);
-    const [dataForRender, setDataForRender] = useState<AllDataOfCharters[]>([])
+    const [dataForRender, setDataForRender] = useState<AllDataOfCharters[]>(dataProvisoria)
 
     useEffect(() => {
-        setDataForRender([])
-        let dataTemporaria: AllDataOfCharters[] = []
-        for (let i = (page - 1) * amountPerPage; i < amountPerPage * page; i++) {
-            dataTemporaria.push(characters[i])
+        if (page === 0) { return }
+        const selectDataForRender = () => {
+            const arrTemporary: AllDataOfCharters[] = []
+            for (let i = (page - 1) * amountPerPage; i < amountPerPage * page && i < 7438; i++) {
+                arrTemporary.push(characters[i])
+                console.log("for", arrTemporary)
+            }
+            setDataForRender(arrTemporary)
         }
-        setDataForRender(dataTemporaria)
-
+        selectDataForRender()
     }, [page])
 
-    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-        setPage(value);
-    };
-
-    // const RenderPage = (data: AllDataOfCharters[]) => {
-    //     data.map((character) => {
-    //         console.log(character)
-    //     })
-    // }
+    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => setPage(value);
 
     return (
         <>
@@ -40,22 +35,15 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
                 mb={15}
             >
                 <Pagination
-                    count={characters.length || 1}
+                    count={149}
                     page={page}
                     onChange={handleChange}
                     color="secondary"
                 />
             </Stack>
-            {/* <List characters={dataForRender} /> */}
+            {
+                dataForRender.map((character) => <CardCharacters character={character} />)
+            }
         </>
     )
 }
-
-
-//  dataForRender.map(
-//     (character: AllDataOfCharters) =>
-//         <CardCharacters  
-//         key={character._id}                            
-//             character={character}
-//         />
-//  )

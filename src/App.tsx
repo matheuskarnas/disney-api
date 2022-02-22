@@ -3,7 +3,7 @@ import { ListOfCharacters } from './components/ListOfCharacters';
 import { Box } from '@mui/material';
 import { useEffect } from 'react';
 import { useState } from "react"
-import { allResponseOfAPI, responseApi } from './services/apiCall';
+import { responseApi } from './services/apiCall';
 
 export type AllDataOfCharters = {
   _id: number
@@ -30,13 +30,6 @@ export const App = () => {
   const [characters, setCharacters] = useState<AllDataOfCharters[]>([])
   const [validation, setValidation] = useState<string>(baseUrl)
 
-
-  const responseData = async () => {
-    console.log(`state`, await allResponseOfAPI(baseUrl))
-  }
-
-  console.log(`state`, characters)
-
   useEffect(() => {
     if (validation !== undefined) {
       const teste = async () => {
@@ -53,7 +46,7 @@ export const App = () => {
       bgcolor='secundary.main'
       color='primary.main'
     >
-      {/* <Header /> */}
+      <Header />
       <h1>Tesxte</h1>
       <h1>{characters.length}</h1>
       <ListOfCharacters characters={characters} />
