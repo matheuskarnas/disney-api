@@ -46,7 +46,7 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
                     color="secondary"
                 />
             </Stack>
-            <List characters={dataForRender} />
+            {/* <List characters={dataForRender} /> */}
         </>
     )
 }

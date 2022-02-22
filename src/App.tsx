@@ -3,6 +3,7 @@ import { ListOfCharacters } from './components/ListOfCharacters';
 import { Box } from '@mui/material';
 import { useEffect } from 'react';
 import { useState } from "react"
+import { allResponseOfAPI, responseApi } from './services/apiCall';
 
 export type AllDataOfCharters = {
   _id: number
@@ -24,22 +25,27 @@ export type ArrayOfCharactersProps = {
 
 export const baseUrl = 'https://api.disneyapi.dev/characters?page=1'
 
+
 export const App = () => {
   const [characters, setCharacters] = useState<AllDataOfCharters[]>([])
-  const [validation, setValidation] = useState<string | undefined>(baseUrl)
+  const [validation, setValidation] = useState<string>(baseUrl)
 
-  useEffect((url = validation) => {
-    if (url !== undefined) {
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          const teste = characters.concat(data.data)
-          setValidation(data.nextPage)          
-          setCharacters(teste)
-          // console.log('data', teste )
-        })
+
+  const responseData = async () => {
+    console.log(`state`, await allResponseOfAPI(baseUrl))
+  }
+
+  console.log(`state`, characters)
+
+  useEffect(() => {
+    if (validation !== undefined) {
+      const teste = async () => {
+        const [data, nextPage] = await responseApi(validation)
+        setCharacters(prev => [...prev, ...data])
+        setValidation(nextPage)
+      }
+      teste()
     }
-    console.log('fetch', characters)
   }, [validation])
 
   return (
