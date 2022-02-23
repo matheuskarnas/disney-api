@@ -32,13 +32,37 @@ export const CharacterModal = ({ character, handleClose, isOpen }: ModalProps) =
       <Box sx={style} color="primary.main">
         <img src={character.imageUrl} />
         <h3>{`name: ${character.name}` || ''}</h3>
-        <h3>{`allies: ${character.allies}` || ''}</h3>
-        <h3>{`enemies: ${character.enemies}` || ''}</h3>
-        <h3>{`films: ${character.films}` || ''}</h3>
-        <h3>{`parkAttractions: ${character.parkAttractions}` || ''}</h3>
-        <h3>{`shortFilms: ${character.shortFilms}` || ''}</h3>
-        <h3>{`tvShows: ${character.tvShows}` || ''}</h3>
-        <h3>{`videoGames: ${character.videoGames}` || ''}</h3>
+
+        {character.allies.length > 0
+          ? <h3>{`Aliados: ${character.allies}`}</h3>
+          : null
+        }
+
+        {character.enemies.length > 0
+          ? <h3>{`inimigos: ${character.enemies}`}</h3>
+          : null
+        }
+
+        {character.films.length > 0
+          ? <h3>{`Filmes: ${character.films}`}</h3>
+          : null
+        }
+
+        {character.shortFilms.length > 0
+          ? <h3>{`Curta metragem: ${character.shortFilms}`}</h3>
+          : null
+        }
+
+        {character.tvShows.length > 0
+          ? <h3>{`programas de TV: ${character.tvShows}`}</h3>
+          : null
+        }
+
+        {character.videoGames.length > 0
+          ? <h3>{`Videogames: ${character.videoGames}`}</h3>
+          : null
+        }
+
       </Box>
     </Modal>
   </div>
