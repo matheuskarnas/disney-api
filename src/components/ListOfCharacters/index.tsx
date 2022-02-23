@@ -19,7 +19,6 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
             const arrTemporary: AllDataOfCharters[] = []
             for (let i = (page - 1) * amountPerPage; i < amountPerPage * page && i < 7438; i++) {
                 arrTemporary.push(characters[i])
-                console.log("for", arrTemporary)
             }
             setDataForRender(arrTemporary)
         }
@@ -33,6 +32,10 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
             <Stack
                 spacing={2}
                 mb={15}
+                display='flex'
+                justifyContent="center"
+                direction="row"
+                alignItems="center"
             >
                 <Pagination
                     count={149}
@@ -41,9 +44,26 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
                     color="secondary"
                 />
             </Stack>
-            {
-                dataForRender.map((character) => <CardCharacters character={character} />)
-            }
+
+            <Grid
+                container
+                direction="row"
+                justifyContent="center"
+                alignItems="flex-start"
+                columnSpacing="1rem"
+                rowSpacing="1rem"
+                px={4}
+            >
+                {
+                    dataForRender.map((character) =>
+                        <CardCharacters
+                            key={character._id}
+                            character={character}
+                        />
+                    )
+                }
+
+            </Grid>
         </>
     )
 }
