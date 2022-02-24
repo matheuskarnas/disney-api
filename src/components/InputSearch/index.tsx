@@ -2,26 +2,35 @@ import { TextField, Box } from '@mui/material';
 import { useState, useEffect } from 'react';
 
 export const InputSearch = () => {
-    const [inputValue, setInputValue] = useState('')
+    const [nameForSearch, setNameForSearch] = useState('')
 
+    let timer: ReturnType<typeof setTimeout>
 
-    let time: NodeJS.Timeout 
+    const newFindName = (value: string) => {
+        if (timer !== undefined) {
+            clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+            setNameForSearch(value)
+        }, 1000)
+    }
 
     useEffect(() => {
+        // if (timer !== undefined) {
+        //     console.log('first timer', timer)
+        //     console.log('secound timer', timer)
+        // }
+        // timer = setTimeout(() => {
+        // }, 1000)
+        console.log('cath', nameForSearch);
 
-        clearTimeout(time)
-        
-        time = setTimeout(() => {
-            console.log('cath', inputValue);
-        }, 1000)
-        console.log('time', typeof time)
-    }, [inputValue])
+    }, [nameForSearch])
 
     return (
         <Box
             component="form"
             sx={{
-                '& > :not(style)': { m: 1, width: '25ch' },
+                '& > :not(style)': { m: 1, width: '100%' },
             }}
             noValidate
             autoComplete="off"
@@ -30,9 +39,12 @@ export const InputSearch = () => {
                 id="outlined-basic"
                 label="Busca por nome"
                 variant="outlined"
-                onChange={(e) => setInputValue(e.target.value)}
+                onChange={(e) => newFindName(e.target.value)}
+                sx={{ background: 'gray', }}
             />
         </Box>
     )
 }
+
+
 
