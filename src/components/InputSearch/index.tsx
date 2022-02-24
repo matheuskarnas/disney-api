@@ -1,7 +1,11 @@
 import { TextField, Box } from '@mui/material';
 import { useState, useEffect } from 'react';
 
-export const InputSearch = () => {
+type InputSearchProps = {
+    collectInput: (name: string) => void;
+}
+
+export const InputSearch = ({ collectInput }: InputSearchProps) => {
     const [nameForSearch, setNameForSearch] = useState('')
 
     let timer: ReturnType<typeof setTimeout>
@@ -16,14 +20,7 @@ export const InputSearch = () => {
     }
 
     useEffect(() => {
-        // if (timer !== undefined) {
-        //     console.log('first timer', timer)
-        //     console.log('secound timer', timer)
-        // }
-        // timer = setTimeout(() => {
-        // }, 1000)
-        console.log('cath', nameForSearch);
-
+        collectInput(nameForSearch)
     }, [nameForSearch])
 
     return (

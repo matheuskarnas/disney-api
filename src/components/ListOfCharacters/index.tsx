@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { AllDataOfCharters } from "../../App"
 import { CardCharacters } from "../CardCharacters"
 import { dataProvisoria } from '../../assets/preData'
+import { InputSearch } from "../InputSearch"
 
 type ListOfCharactersprops = {
     characters: AllDataOfCharters[]
@@ -12,6 +13,19 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
     const [page, setPage] = useState(0);
     const [amountPerPage, setAmountPerPage] = useState(50);
     const [dataForRender, setDataForRender] = useState<AllDataOfCharters[]>(dataProvisoria)
+
+    const collectInput = async (name: string) => {
+        if (name !== '') {
+            const arrTemporary: AllDataOfCharters[] = []
+
+            await characters.map((c) => {
+                if (c.name === name) {
+                    arrTemporary.push(c)
+                }
+            })
+            setDataForRender(arrTemporary)
+        }
+    }
 
     useEffect(() => {
         if (page === 0) { return }
@@ -29,6 +43,7 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
 
     return (
         <>
+            <InputSearch collectInput={collectInput} />
             <Stack
                 spacing={2}
                 mb={15}
