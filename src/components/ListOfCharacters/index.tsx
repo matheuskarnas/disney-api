@@ -38,7 +38,7 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
                 alignItems="center"
             >
                 <Pagination
-                    count={149}
+                    count={Math.ceil(characters.length / amountPerPage)}
                     page={page}
                     onChange={handleChange}
                     color="secondary"
