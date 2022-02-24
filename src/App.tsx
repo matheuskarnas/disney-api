@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 import { useEffect } from 'react';
 import { useState } from "react"
 import { responseApi } from './services/apiCall';
+import { InputSearch } from './components/InputSearch'
 
 export type AllDataOfCharters = {
   _id: number
@@ -49,6 +50,7 @@ export const App = () => {
       <Header />
       <h1>Tesxte</h1>
       <h1>{characters.length}</h1>
+      <InputSearch />
       <ListOfCharacters characters={characters} />
     </Box>
   )
