@@ -9,37 +9,57 @@ type ListOfCharactersprops = {
     characters: AllDataOfCharters[]
 }
 
-export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
-    const [page, setPage] = useState(0);
-    const [amountPerPage, setAmountPerPage] = useState(50);
-    const [dataForRender, setDataForRender] = useState<AllDataOfCharters[]>(dataProvisoria)
+export const ListOfCharacters = ({ characters/* todos os characters */ }: ListOfCharactersprops) => {
+    const [page, setPage] = useState(0); // pagina atual
+    const [amountPerPage, setAmountPerPage] = useState(50); // numero max de intens renderizados por vez
+    const [filteredData, setFilteredData] = useState<AllDataOfCharters[]>([]) // Toda info que pode ser renderizada
+    const [dataForRender, setDataForRender] = useState<AllDataOfCharters[]>(dataProvisoria) // exata informação que será renderizada
 
-    const collectInput = async (name: string) => {
-        if (name !== '') {
+    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => setPage(value);
+
+    const paginationData = (n?: number) => {
+        if (n === 0) { return }
+
+        const arrTemporary: AllDataOfCharters[] = []
+        for (let i = (page - 1) * amountPerPage; i < amountPerPage * page && i < filteredData.length; i++) {
+            arrTemporary.push(filteredData[i])
+        }
+        setDataForRender(arrTemporary)
+    }
+
+    useEffect(() => {
+        console.log('Pagination', page)
+        paginationData(page)
+    }, [page])
+
+    const collectInput = (name: string) => {
+        if (name === '') {
+            if (characters.length > 0) {
+                setFilteredData(characters)
+            } else {
+                setFilteredData(dataProvisoria)
+            }
+        } else {
             const arrTemporary: AllDataOfCharters[] = []
-
-            await characters.map((c) => {
-                if (c.name === name) {
-                    arrTemporary.push(c)
-                }
+            characters.map(character => {
+                if (character.name.search(name) >= 0)
+                    arrTemporary.push(character)
             })
-            setDataForRender(arrTemporary)
+            setFilteredData(arrTemporary)
         }
     }
 
     useEffect(() => {
-        if (page === 0) { return }
-        const selectDataForRender = () => {
-            const arrTemporary: AllDataOfCharters[] = []
-            for (let i = (page - 1) * amountPerPage; i < amountPerPage * page && i < 7438; i++) {
-                arrTemporary.push(characters[i])
-            }
-            setDataForRender(arrTemporary)
-        }
-        selectDataForRender()
-    }, [page])
+        console.log("filteredData.length", filteredData.length)
+        if (filteredData.length > amountPerPage) {
+            paginationData()
 
-    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => setPage(value);
+        } else {
+            setDataForRender(filteredData)
+        }
+    }, [filteredData])
+
+    // console.log(filteredData)
 
     return (
         <>
@@ -53,7 +73,7 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
                 alignItems="center"
             >
                 <Pagination
-                    count={Math.ceil(characters.length / amountPerPage)}
+                    count={Math.ceil(filteredData.length / amountPerPage)}
                     page={page}
                     onChange={handleChange}
                     color="secondary"
@@ -69,15 +89,15 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
                 rowSpacing="1rem"
                 px={4}
             >
-                {
-                    dataForRender.map((character) =>
+                {dataForRender.length === 0
+                    ? <h1>No Data</h1>
+                    : dataForRender.map((character) =>
                         <CardCharacters
                             key={character._id}
                             character={character}
                         />
                     )
                 }
-
             </Grid>
         </>
     )
