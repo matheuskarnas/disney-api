@@ -1,18 +1,21 @@
-import { Box, CardMedia } from "@mui/material";
+import { Box } from "@mui/material";
 import logoImg from '../../assets/images/disney-logo.png'
 
 export const Header = () => {
 
     return (
         <Box
-            height="5rem"
+            height="10rem"
+            display='flex'
+            justifyContent='center'
+            pt='1.5rem'
         >
-            <CardMedia
-                component="img"
-                height="28px"
-                width="2rem"
-                image={logoImg}
-                alt='Logo da Disney'
+            <img
+                style={{
+                    maxHeight: '10rem'
+                }}
+                src={logoImg}
+                alt="logotipo da disney"
             />
         </Box>
     )
