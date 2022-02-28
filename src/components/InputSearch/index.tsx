@@ -24,13 +24,13 @@ export const InputSearch = ({ collectInput }: InputSearchProps) => {
     }, [nameForSearch])
 
     return (
-        <Box
-            component="form"
+        <Box            
             sx={{
                 '& > :not(style)': { m: 1, width: '100%' },
             }}
-            noValidate
-            autoComplete="off"
+            // noValidate
+            // autoComplete="off"
+            // onSubmit={(e: React.SyntheticEvent) => {e.preventDefault()}}
         >
             <TextField
                 id="outlined-basic"
