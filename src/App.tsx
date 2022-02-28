@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 import { useEffect } from 'react';
 import { useState } from "react"
 import { responseApi } from './services/apiCall';
+import { Footer } from './components/Footer';
 
 export type AllDataOfCharters = {
   _id: number
@@ -45,11 +46,14 @@ export const App = () => {
     <Box
       bgcolor='secundary.main'
       color='primary.main'
+      px='5rem'
+      minHeight='100vh'
     >
       <Header />
       <h1>Tesxte</h1>
       <h1>{characters.length}</h1>      
       <ListOfCharacters characters={characters} />
+      <Footer />
     </Box>
   )
 }
