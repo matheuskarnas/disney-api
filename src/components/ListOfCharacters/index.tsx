@@ -18,7 +18,7 @@ export const ListOfCharacters = ({ characters/* todos os characters */ }: ListOf
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => setPage(value);
 
     const paginationData = (n?: number) => {
-        if (n === 0) { return }
+        if (n === 0) { setPage(1) }
 
         const arrTemporary: AllDataOfCharters[] = []
         for (let i = (page - 1) * amountPerPage; i < amountPerPage * page && i < filteredData.length; i++) {
