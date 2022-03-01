@@ -13,7 +13,7 @@ const style = {
   p: 4,
   textAlign: 'center',
   borderRadius: '4rem',
-  border: 'none',  
+  border: 'none',
 
   h3: {
     fontSize: '1rem',
@@ -40,7 +40,11 @@ export const CharacterModal = ({ character, handleClose, isOpen }: ModalProps) =
       aria-describedby="modal-modal-description"
     >
       <Box sx={style} color="primary.main">
-        <img src={character.imageUrl} />
+        <img
+          src={character.imageUrl}
+          alt={`personagem de nome ${character.name} da disney`}
+        />
+
         <h2>{`${character.name}` || ''}</h2>
 
         {character.allies.length > 0

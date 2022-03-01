@@ -30,6 +30,7 @@ export const CardCharacters = ({ character }: CardCharactersProps) => {
         >
           <img
             src={character.imageUrl}
+            alt={`personagem de nome ${character.name} da disney`}
             style={{ width: '100%', maxHeight: '15rem', borderRadius: '12px' }}
           />
           <h1 style={{ fontSize: '1.75rem' }} > {character.name} </h1>
