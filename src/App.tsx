@@ -49,9 +49,7 @@ export const App = () => {
       px='5rem'
       minHeight='100vh'
     >
-      <Header />
-      <h1>Tesxte</h1>
-      <h1>{characters.length}</h1>      
+      <Header />                 
       <ListOfCharacters characters={characters} />
       <Footer />
     </Box>
