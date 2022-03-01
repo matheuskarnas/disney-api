@@ -81,7 +81,8 @@ export const ListOfCharacters = ({ characters/* todos os characters */ }: ListOf
             </Stack>
 
             <Grid
-            mt='2rem'
+                pb='5.1rem'
+                mt='2rem'
                 container
                 direction="row"
                 justifyContent="center"

@@ -18,7 +18,7 @@ export const CardCharacters = ({ character }: CardCharactersProps) => {
       <Grid
         onClick={() => handleOpen()}
         item
-        
+
       >
         <Box
           bgcolor="background.paper"
@@ -26,13 +26,13 @@ export const CardCharacters = ({ character }: CardCharactersProps) => {
           height='20rem'
           textAlign='center'
           sx={{ background: '#292631', borderRadius: '12px' }}
-          
+
         >
           <img
             src={character.imageUrl}
             style={{ width: '100%', maxHeight: '15rem', borderRadius: '12px' }}
           />
-          <h1>{character.name}</h1>
+          <h1 style={{ fontSize: '1.75rem' }} > {character.name} </h1>
         </Box>
       </Grid>
     </>

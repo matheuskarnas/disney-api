@@ -8,6 +8,7 @@ export const Footer = () => {
             display='flex'
             justifyContent='center'
             alignItems='center'
+            bgcolor='#000000d3'
             sx={{
                 position: 'fixed',
                 bottom: 0,

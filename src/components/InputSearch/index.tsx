@@ -26,6 +26,7 @@ export const InputSearch = ({ collectInput }: InputSearchProps) => {
     return (
         <Box
             mt='5rem'
+            mx='2rem'
             sx={{ '& > :not(style)': { m: 1, width: '100%', }, }}
         // noValidate
         // autoComplete="off"
