@@ -18,13 +18,15 @@ export const CardCharacters = ({ character }: CardCharactersProps) => {
       <Grid
         onClick={() => handleOpen()}
         item
+        
       >
         <Box
           bgcolor="background.paper"
           width='23rem'
           height='20rem'
           textAlign='center'
-          sx={{ borderRadius: '12px' }}
+          sx={{ background: '#292631', borderRadius: '12px' }}
+          
         >
           <img
             src={character.imageUrl}

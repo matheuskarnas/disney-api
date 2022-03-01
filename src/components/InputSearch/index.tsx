@@ -24,20 +24,22 @@ export const InputSearch = ({ collectInput }: InputSearchProps) => {
     }, [nameForSearch])
 
     return (
-        <Box            
-            sx={{
-                '& > :not(style)': { m: 1, width: '100%' },
-            }}
-            // noValidate
-            // autoComplete="off"
-            // onSubmit={(e: React.SyntheticEvent) => {e.preventDefault()}}
+        <Box
+            mt='5rem'
+            sx={{ '& > :not(style)': { m: 1, width: '100%', }, }}
+        // noValidate
+        // autoComplete="off"
+        // onSubmit={(e: React.SyntheticEvent) => {e.preventDefault()}}
         >
             <TextField
                 id="outlined-basic"
                 label="Busca por nome"
-                variant="outlined"
+                variant="filled"
                 onChange={(e) => newFindName(e.target.value)}
-                sx={{ background: 'gray', }}
+                sx={{
+                    background: '#4b4659',
+                    borderRadius: '1rem 1rem 0 0'
+                }}
             />
         </Box>
     )

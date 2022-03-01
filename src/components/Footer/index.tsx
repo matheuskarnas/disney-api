@@ -3,11 +3,16 @@ import { Box } from "@mui/material"
 export const Footer = () => {
     return (
         <Box
-            height='10rem'
+            height='5rem'
             width='100%'
             display='flex'
             justifyContent='center'
             alignItems='center'
+            sx={{
+                position: 'fixed',
+                bottom: 0,
+                left: 0,
+            }}
 
         >
             <h2 style={{ fontSize: '0.75rem' }}>
@@ -19,7 +24,6 @@ export const Footer = () => {
                     API disney
                 </a>
             </h2>
-
         </Box >
     )
 }

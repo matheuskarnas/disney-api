@@ -66,7 +66,7 @@ export const ListOfCharacters = ({ characters/* todos os characters */ }: ListOf
             <InputSearch collectInput={collectInput} />
             <Stack
                 spacing={2}
-                mb={15}
+                mt='2rem'
                 display='flex'
                 justifyContent="center"
                 direction="row"
@@ -81,6 +81,7 @@ export const ListOfCharacters = ({ characters/* todos os characters */ }: ListOf
             </Stack>
 
             <Grid
+            mt='2rem'
                 container
                 direction="row"
                 justifyContent="center"
