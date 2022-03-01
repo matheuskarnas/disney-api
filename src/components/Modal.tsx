@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { AllDataOfCharters } from '../../App'
+import { AllDataOfCharters } from '../App'
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -13,9 +13,7 @@ const style = {
   p: 4,
   textAlign: 'center',
   borderRadius: '4rem',
-
-  h2: {
-  },
+  border: 'none',  
 
   h3: {
     fontSize: '1rem',
@@ -78,4 +76,3 @@ export const CharacterModal = ({ character, handleClose, isOpen }: ModalProps) =
     </Modal>
   </div>
 )
-

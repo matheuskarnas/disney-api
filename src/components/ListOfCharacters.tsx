@@ -1,9 +1,9 @@
 import { Grid, Pagination, Stack } from "@mui/material"
 import { useEffect, useState } from "react"
-import { AllDataOfCharters } from "../../App"
-import { CardCharacters } from "../CardCharacters"
-import { dataProvisoria } from '../../assets/preData'
-import { InputSearch } from "../InputSearch"
+import { AllDataOfCharters } from "../App"
+import { CardCharacters } from "./CardCharacters"
+import { dataProvisoria } from '../assets/preData'
+import { InputSearch } from "./InputSearch"
 
 type ListOfCharactersprops = {
     characters: AllDataOfCharters[]

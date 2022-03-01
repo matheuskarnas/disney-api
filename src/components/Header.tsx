@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import logoImg from '../../assets/images/disney-logo.png'
+import logoImg from '../assets/images/disney-logo.png'
 
 export const Header = () => {
 

@@ -1,7 +1,7 @@
 import { Box, Grid } from '@mui/material';
 import { useState } from 'react';
-import { AllDataOfCharters } from '../../App';
-import { CharacterModal } from '../Modal';
+import { AllDataOfCharters } from '../App';
+import { CharacterModal } from './Modal';
 
 type CardCharactersProps = {
   character: AllDataOfCharters
