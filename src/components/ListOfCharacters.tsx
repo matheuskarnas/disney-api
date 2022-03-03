@@ -9,11 +9,11 @@ type ListOfCharactersprops = {
     characters: AllDataOfCharters[]
 }
 
-export const ListOfCharacters = ({ characters/* todos os characters */ }: ListOfCharactersprops) => {
-    const [page, setPage] = useState(0); // pagina atual
-    const [amountPerPage, setAmountPerPage] = useState(50); // numero max de intens renderizados por vez
-    const [filteredData, setFilteredData] = useState<AllDataOfCharters[]>([]) // Toda info que pode ser renderizada
-    const [dataForRender, setDataForRender] = useState<AllDataOfCharters[]>(dataProvisoria) // exata informação que será renderizada
+export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
+    const [page, setPage] = useState(0);
+    const [amountPerPage, setAmountPerPage] = useState(50);
+    const [filteredData, setFilteredData] = useState<AllDataOfCharters[]>([])
+    const [dataForRender, setDataForRender] = useState<AllDataOfCharters[]>(dataProvisoria)
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => setPage(value);
 

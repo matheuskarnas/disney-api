@@ -28,9 +28,6 @@ export const InputSearch = ({ collectInput }: InputSearchProps) => {
             mt='5rem'
             mx='2rem'
             sx={{ '& > :not(style)': { m: 1, width: '100%', }, }}
-        // noValidate
-        // autoComplete="off"
-        // onSubmit={(e: React.SyntheticEvent) => {e.preventDefault()}}
         >
             <TextField
                 id="outlined-basic"
