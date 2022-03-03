@@ -28,7 +28,6 @@ export const ListOfCharacters = ({ characters/* todos os characters */ }: ListOf
     }
 
     useEffect(() => {
-        console.log('Pagination', page)
         paginationData(page)
     }, [page])
 
@@ -50,7 +49,6 @@ export const ListOfCharacters = ({ characters/* todos os characters */ }: ListOf
     }
 
     useEffect(() => {
-        console.log("filteredData.length", filteredData.length)
         if (filteredData.length > amountPerPage) {
             paginationData()
 
@@ -58,8 +56,6 @@ export const ListOfCharacters = ({ characters/* todos os characters */ }: ListOf
             setDataForRender(filteredData)
         }
     }, [filteredData])
-
-    // console.log(filteredData)
 
     return (
         <>
