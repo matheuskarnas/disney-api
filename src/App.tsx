@@ -44,7 +44,7 @@ export const App = () => {
 
   return (
     <Box
-      bgcolor='secundary.main'
+      bgcolor='secondary.main'
       color='primary.main'
       px='5rem'
       minHeight='100vh'
