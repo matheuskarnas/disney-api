@@ -11,8 +11,6 @@ export const InputSearch = ({ collectInput }: InputSearchProps) => {
     const theme = useTheme()
     const smDown = useMediaQuery(theme.breakpoints.down('sm'))
 
-    // console.log('teste', smDown)
-
     let timer: ReturnType<typeof setTimeout>
 
     const newFindName = (value: string) => {
@@ -30,12 +28,17 @@ export const InputSearch = ({ collectInput }: InputSearchProps) => {
 
     return (
         <Box
-            mt='1.5rem'
-            mx='2rem'
-            sx={{ '& > :not(style)': { m: 1, width: '100%', }, }}
+            mt={smDown ? '1.5rem' : '3rem'}
+            sx={{
+                mx: 'auto',
+                width: '70%',
+                maxWidth: '1100px'
+            }
+            }
         >
             <TextField
-                size="small"
+                fullWidth={true}
+                size={smDown ? "small" : "medium"}
                 id="outlined-basic"
                 label="Busca por nome"
                 variant="filled"
@@ -45,7 +48,9 @@ export const InputSearch = ({ collectInput }: InputSearchProps) => {
                     borderRadius: '1rem 1rem 0 0',
                 }}
             />
-        </Box>
+        </Box >
+
+
     )
 }
 

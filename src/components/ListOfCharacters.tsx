@@ -1,9 +1,10 @@
-import { Grid, Pagination, Stack as MyPagination, useTheme } from "@mui/material"
+import { Box, Grid, Pagination, Stack as MyPagination, useMediaQuery, useTheme } from "@mui/material"
 import { useEffect, useState } from "react"
 import { AllDataOfCharters } from "../App"
 import { CardCharacters } from "./CardCharacters"
 import { dataProvisoria } from '../assets/preData'
 import { InputSearch } from "./InputSearch"
+import SearchOffOutlinedIcon from '@mui/icons-material/SearchOffOutlined';
 
 type ListOfCharactersprops = {
     characters: AllDataOfCharters[]
@@ -14,6 +15,11 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
     const [amountPerPage, setAmountPerPage] = useState(50);
     const [filteredData, setFilteredData] = useState<AllDataOfCharters[]>([])
     const [dataForRender, setDataForRender] = useState<AllDataOfCharters[]>(dataProvisoria)
+
+    const theme = useTheme()
+    const smDown = useMediaQuery(theme.breakpoints.down('sm'))
+    const lgDown = useMediaQuery(theme.breakpoints.down('lg'))
+
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => setPage(value);
 
@@ -57,52 +63,67 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
         }
     }, [filteredData])
 
-    const theme = useTheme()
-    console.log('teste', theme.breakpoints)
+
+
     return (
         <>
             <InputSearch collectInput={collectInput} />
-            <MyPagination
-                spacing={2}
-                mt='1.25rem'
-                display='flex'
-                justifyContent="center"
-                direction="row"
-                alignItems="center"
-            >
-                <Pagination
-                    size="small"
-                    siblingCount={0}
-                    count={Math.ceil(filteredData.length / amountPerPage)}
-                    page={page}
-                    onChange={handleChange}
-                    color="secondary"
-                />
-            </MyPagination>
+            {filteredData.length > amountPerPage
+                ? <MyPagination
+                    spacing={2}
+                    mt='1.25rem'
+                    display='flex'
+                    justifyContent="center"
+                    direction="row"
+                    alignItems="center"
+                >
+                    <Pagination
+                        size={smDown ? "small" : 'medium'}
+                        siblingCount={smDown ? 0 : lgDown ? 1 : 2}
+                        count={Math.ceil(filteredData.length / amountPerPage)}
+                        page={page}
+                        onChange={handleChange}
+                        color="secondary"
+                    />
+                </MyPagination>
+                : null
+            }
 
-            <Grid
-                pb='3.1rem'
-                px='1rem'
-                mt='0.5rem'
-                
-                container
-                direction="row"
-                justifyContent="center"
-                alignItems="flex-start"
-                columnSpacing="1rem"
-                rowSpacing="1.75rem"
-                
+            <Box
+                width='100%'
+                maxWidth='1110px'
+                px={lgDown ? '5rem' : 0}
+                mx='auto'
+
             >
-                {dataForRender.length === 0
-                    ? <h1>No Data</h1>
-                    : dataForRender.map((character) =>
-                        <CardCharacters
-                            key={character._id}
-                            character={character}
-                        />
-                    )
-                }
-            </Grid>
+                <Grid
+                    pb={smDown ? '3.1rem' : '4.6rem'}
+                    px='auto'
+                    mt='0.5rem'
+                    container
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="flex-start"
+                    columnSpacing={smDown ? '1rem' : '3rem'}
+                    rowSpacing="1.75rem"
+                >
+                    {dataForRender.length === 0
+                        ? <Box alignItems='center' mt={'2.5rem'}>
+                            <SearchOffOutlinedIcon sx={{ 
+                                height: lgDown ? '100px' : '150px', 
+                                width: lgDown ? '100px' : '150px',
+                                 }} />
+                            <h1>No Data</h1>
+                        </Box>
+                        : dataForRender.map((character) =>
+                            <CardCharacters
+                                key={character._id}
+                                character={character}
+                            />
+                        )
+                    }
+                </Grid>
+            </Box>
         </>
     )
 }
