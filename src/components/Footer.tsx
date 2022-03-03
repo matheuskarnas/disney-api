@@ -1,9 +1,12 @@
-import { Box } from "@mui/material"
+import { Box, useMediaQuery, useTheme } from "@mui/material"
 
 export const Footer = () => {
+    const theme = useTheme()
+    const smDown = useMediaQuery(theme.breakpoints.down('sm'))
+
     return (
         <Box
-            height='5rem'
+            height={smDown ? '3rem' : '4.5rem'}
             width='100%'
             display='flex'
             justifyContent='center'
@@ -16,7 +19,7 @@ export const Footer = () => {
             }}
 
         >
-            <h2 style={{ fontSize: '0.75rem' }}>
+            <h2 style={{ fontSize:smDown ? '0.60rem' : '0.8rem'  }}>
                 Projeto feito utilizando &nbsp;
                 <a
                     href='https://disneyapi.dev/docs'
