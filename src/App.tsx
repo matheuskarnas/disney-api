@@ -46,10 +46,9 @@ export const App = () => {
     <Box
       bgcolor='secondary.main'
       color='primary.main'
-      px='5rem'
       minHeight='100vh'
     >
-      <Header />                 
+      <Header />
       <ListOfCharacters characters={characters} />
       <Footer />
     </Box>

@@ -3,7 +3,7 @@ import { Box } from "@mui/material"
 export const Footer = () => {
     return (
         <Box
-            height='5rem'
+            height='3rem'
             width='100%'
             display='flex'
             justifyContent='center'
@@ -16,7 +16,7 @@ export const Footer = () => {
             }}
 
         >
-            <h2 style={{ fontSize: '0.75rem' }}>
+            <h2 style={{ fontSize: '0.60rem' }}>
                 Projeto feito utilizando &nbsp;
                 <a
                     href='https://disneyapi.dev/docs'

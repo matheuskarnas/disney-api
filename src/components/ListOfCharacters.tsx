@@ -1,4 +1,4 @@
-import { Grid, Pagination, Stack } from "@mui/material"
+import { Grid, Pagination, Stack as MyPagination, useTheme } from "@mui/material"
 import { useEffect, useState } from "react"
 import { AllDataOfCharters } from "../App"
 import { CardCharacters } from "./CardCharacters"
@@ -57,35 +57,41 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
         }
     }, [filteredData])
 
+    const theme = useTheme()
+    console.log('teste', theme.breakpoints)
     return (
         <>
             <InputSearch collectInput={collectInput} />
-            <Stack
+            <MyPagination
                 spacing={2}
-                mt='2rem'
+                mt='1.25rem'
                 display='flex'
                 justifyContent="center"
                 direction="row"
                 alignItems="center"
             >
                 <Pagination
+                    size="small"
+                    siblingCount={0}
                     count={Math.ceil(filteredData.length / amountPerPage)}
                     page={page}
                     onChange={handleChange}
                     color="secondary"
                 />
-            </Stack>
+            </MyPagination>
 
             <Grid
-                pb='5.1rem'
-                mt='2rem'
+                pb='3.1rem'
+                px='1rem'
+                mt='0.5rem'
+                
                 container
                 direction="row"
                 justifyContent="center"
                 alignItems="flex-start"
                 columnSpacing="1rem"
-                rowSpacing="1rem"
-                px={4}
+                rowSpacing="1.75rem"
+                
             >
                 {dataForRender.length === 0
                     ? <h1>No Data</h1>
