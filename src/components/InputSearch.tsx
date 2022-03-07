@@ -32,9 +32,8 @@ export const InputSearch = ({ collectInput }: InputSearchProps) => {
             sx={{
                 mx: 'auto',
                 width: '70%',
-                maxWidth: '1100px'
-            }
-            }
+                maxWidth: '900px'
+            }}
         >
             <TextField
                 fullWidth={true}
