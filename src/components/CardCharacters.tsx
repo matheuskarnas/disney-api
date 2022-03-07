@@ -30,19 +30,17 @@ export const CardCharacters = ({ character }: CardCharactersProps) => {
             background: '#292631',
             borderRadius: '12px',
             flexDirection: 'column',
-            justifyContent: 'space-between'            
-        }}        
+            justifyContent: 'space-between'
+          }}
         >
-        <img
-          src={character.imageUrl}
-          alt={`personagem da disney de nome ${character.name}`}
-          style={{ width: '100%', maxHeight: '15rem', borderRadius: ' 12px 12px 0 0' }}
-        />
-        <h1 style={{ fontSize: '1.25rem' }} > {character.name} </h1>
-      </Box>
-    </Grid>
+          <img
+            src={character.imageUrl}
+            alt={`personagem de nome ${character.name}`}
+            style={{ width: '100%', maxHeight: '15rem', borderRadius: ' 12px 12px 0 0' }}
+          />
+          <h1 style={{ fontSize: '1.25rem' }} > {character.name} </h1>
+        </Box>
+      </Grid>
     </>
-
-
   )
 }

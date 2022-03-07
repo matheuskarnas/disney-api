@@ -38,6 +38,7 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
     }, [page])
 
     const collectInput = (name: string) => {
+        setPage(1)
         if (name === '') {
             if (characters.length > 0) {
                 setFilteredData(characters)
@@ -109,11 +110,10 @@ export const ListOfCharacters = ({ characters }: ListOfCharactersprops) => {
                 >
                     {dataForRender.length === 0
                         ? <Box alignItems='center' mt={'2.5rem'}>
-                            <SearchOffOutlinedIcon sx={{ 
-                                height: lgDown ? '100px' : '150px', 
+                            <SearchOffOutlinedIcon sx={{
+                                height: lgDown ? '100px' : '150px',
                                 width: lgDown ? '100px' : '150px',
-                                 }} />
-                            <h1>No Data</h1>
+                            }} />
                         </Box>
                         : dataForRender.map((character) =>
                             <CardCharacters
