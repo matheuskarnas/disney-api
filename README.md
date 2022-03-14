@@ -11,7 +11,7 @@ os pagina de 50 em 50. Ao clicar em um personagem abre um modal com mais informa
 <br/>
 <br/>
 
-Desing resposivo foi desenvolvido com o conceito de mobile first.
+Design responsivo foi desenvolvido com o conceito de mobile first.
 
 <br/>
 <img src="./github/ResponsividadeHome.gif" />
@@ -43,7 +43,7 @@ Desing resposivo foi desenvolvido com o conceito de mobile first.
 
 <br/>
 
-### Primeiro clone o repositorio abaixo.
+### Primeiro clone o repositório  abaixo.
 
 <br/>
 
@@ -51,14 +51,14 @@ Desing resposivo foi desenvolvido com o conceito de mobile first.
     
 
 
-### Depois de clonado vamos instalar as dependencias, vá até repositorio que você acabou de clonar e rode: 
+### Após clonado vamos instalar as dependências, vá até repositório que você acabou de clonar e rode: 
 <br />
 
     yarn
      #
     npm
 
-### Agora com as dependencias instaladas, vamos rodar o projeto executando:
+### Agora com as dependências instaladas, vamos rodar o projeto executando:
 
 <br/>
 
@@ -75,7 +75,7 @@ se tudo for feito corretamente o projeto deve estar rodando [aqui](http://localh
 
 <br/>
 
-Gostou do projeto, tem alguma duvida ou sugestão não deixe de me contatrar.
+Gostou do projeto, tem alguma dúvida ou sugestão não deixe de me contatar.
 
 <br/>
 
