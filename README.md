@@ -3,7 +3,7 @@
 <br/>
 
 Está aplicação é uma lista simples que mostrar personagens fornecidos pela [Disney API](https://disneyapi.dev/),
-os pagina de 50 em 50. Ao clicar em um personagem abre um modal com mais informações e tambem temos um input que busca personagens por nome.
+os pagina de 50 em 50. Ao clicar em um personagem abre um modal com mais informações e também temos um input que busca personagens por nome.
 
 <br/> 
 
