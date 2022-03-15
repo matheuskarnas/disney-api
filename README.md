@@ -64,7 +64,7 @@ Design responsivo foi desenvolvido com o conceito de mobile first.
 
     yarn dev
         #
-    npm install
+    npm dev
 se tudo for feito corretamente o projeto deve estar rodando [aqui](http://localhost:3000/).
 
 ---
