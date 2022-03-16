@@ -2,8 +2,7 @@
 ## Descrição
 <br/>
 
-Está aplicação é uma lista simples que mostrar personagens fornecidos pela [Disney API](https://disneyapi.dev/),
-os pagina de 50 em 50. Ao clicar em um personagem abre um modal com mais informações e também temos um input que busca personagens por nome.
+Esta aplicação é uma lista simples que mostra personagens fornecidos pela [Disney API](https://disneyapi.dev/), dispostos em páginas (ou em uma página) de 50 em 50. Ao clicar em um personagem, abre um modal com mais informações, também temos um input que busca personagens por nome.
 
 <br/> 
 
@@ -11,7 +10,7 @@ os pagina de 50 em 50. Ao clicar em um personagem abre um modal com mais informa
 <br/>
 <br/>
 
-Design responsivo foi desenvolvido com o conceito de mobile first.
+O design responsivo foi desenvolvido com o conceito de mobile first.
 
 <br/>
 <img src="./github/ResponsividadeHome.gif" />
