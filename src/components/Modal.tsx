@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { useMediaQuery, useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import { blueGrey, grey } from '@mui/material/colors';
@@ -39,7 +40,7 @@ export const CharacterModal = ({ character, handleClose, isOpen }: ModalProps) =
 
     img: {
       maxHeight: '50vh',
-      borderRadius: '0.5rem',      
+      borderRadius: '0.5rem',
       width: '100%',
     },
 
@@ -53,7 +54,7 @@ export const CharacterModal = ({ character, handleClose, isOpen }: ModalProps) =
       fontSize: '1rem',
       fontWeight: 'lighter',
 
-      marginX: smDown? 0 : 2,
+      marginX: smDown ? 0 : 2,
       span: {
         color: blueGrey[100],
       },
@@ -75,12 +76,11 @@ export const CharacterModal = ({ character, handleClose, isOpen }: ModalProps) =
 
           <h2>{`${character.name}` || ''}</h2>
 
-          {character.allies.length > 0
-            ? <h3> <span>Aliados : &nbsp;</span> {character.allies}.</h3>
-            : null
+          {character.allies.length > 0 && <h3> <span>Aliados : &nbsp;</span> {character.allies}.</h3>
+
           }
 
-          {character.enemies.length > 0
+          {character?.enemies.length > 0
             ? <h3> <span>Inimigos : &nbsp;</span> {character.enemies}.</h3>
             : null
           }
